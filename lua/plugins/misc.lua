@@ -31,18 +31,4 @@ return {
       },
     },
   },
-
-  {
-    'folke/which-key.nvim',
-    dependencies = 'echasnovski/mini.icons',
-    event = 'VeryLazy',
-    keys = {
-      {
-        '<leader>?',
-        function() require('which-key').show { global = false } end,
-        { desc = 'Show which-key' },
-      },
-    },
-    opts = {},
-  },
 }

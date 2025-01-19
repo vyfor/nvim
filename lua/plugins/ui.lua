@@ -10,7 +10,6 @@ return {
         'nvim-cmp',
         'nvim-web-devicons',
         'telescope',
-        'which-key',
       },
       disable = {
         background = true,
