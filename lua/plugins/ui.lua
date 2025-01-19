@@ -3,6 +3,16 @@ return {
     'marko-cerovac/material.nvim',
     lazy = false,
     priority = 1000,
+    opts = {
+      plugins = {
+        'flash',
+        'mini',
+        'nvim-cmp',
+        'nvim-web-devicons',
+        'telescope',
+        'which-key',
+      },
+    },
   },
 
   {
