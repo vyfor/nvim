@@ -8,7 +8,7 @@ return {
         '<leader>rf',
         function() require('conform').format { async = true } end,
         mode = '',
-        desc = 'Format buffer',
+        desc = 'Format Buffer',
       },
     },
 

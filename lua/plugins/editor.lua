@@ -1,18 +1,48 @@
 return {
   {
-    'willothy/nvim-cokeline',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons',
-    },
+    'akinsho/bufferline.nvim',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     event = 'BufAdd',
     keys = {
-      { '<[b>', '<Plug>(cokeline-focus-prev)', desc = 'Prev Buffer' },
-      { '<]b>', '<Plug>(cokeline-focus-next)', desc = 'Next Buffer' },
+      { '<[b>', '<cmd>BufferLineCyclePrev<CR>', desc = 'Prev Buffer' },
+      { '<]b>', '<cmd>BufferLineCycleNext<CR>', desc = 'Next Buffer' },
+      {
+        '<leader><b[>',
+        '<cmd>BufferLineMovePrev<CR>',
+        desc = 'Move Prev Buffer',
+      },
+      {
+        '<leader><b]>',
+        '<cmd>BufferLineMoveNext<CR>',
+        desc = 'Move Next Buffer',
+      },
+      { '<leader>bb', '<cmd>BufferLinePick<CR>', desc = 'Pick Buffer' },
+      {
+        '<leader>bn',
+        '<cmd>BufferLineCloseRight<CR>',
+        desc = 'Close Buffers To The Right',
+      },
+      {
+        '<leader>bp',
+        '<cmd>BufferLineCloseLeft<CR>',
+        desc = 'Close Buffers To The Left',
+      },
+      {
+        '<leader>bC',
+        '<cmd>BufferLineCloseOthers<CR>',
+        desc = 'Close Other Buffers',
+      },
     },
     opts = {
-      show_if_buffers_are_at_least = 2,
-      sidebar = false,
+      options = {
+        themable = true,
+        indicator = {
+          style = 'underline',
+        },
+        buffer_close_icon = '',
+        close_icon = '',
+        diagnostics = false,
+      },
     },
   },
 

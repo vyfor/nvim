@@ -7,17 +7,17 @@ return {
       {
         '<leader>ff',
         '<cmd>Telescope find_files<cr>',
-        desc = 'Find files',
+        desc = 'Find Files',
       },
       {
         '<leader>fb',
         '<cmd>Telescope buffers<cr>',
-        desc = 'Find buffers',
+        desc = 'Find Buffers',
       },
       {
         '<leader>fw',
         '<cmd>Telescope live_grep<cr>',
-        desc = 'Live grep',
+        desc = 'Live Grep',
       },
     },
   },
@@ -29,7 +29,7 @@ return {
       {
         '<leader>E',
         '<cmd>lua MiniFiles.open()<cr>',
-        desc = 'File explorer',
+        desc = 'File Explorer',
       },
     },
     opts = {},

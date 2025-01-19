@@ -6,28 +6,28 @@ local function on_attach(_, bufnr)
     'n',
     'gD',
     buf.declaration,
-    { buffer = bufnr, desc = 'Go to declaration' }
+    { buffer = bufnr, desc = 'Go To Declaration' }
   )
   map('n', 'gd', buf.definition, { buffer = bufnr, desc = 'Go to definition' })
   map(
     'n',
     'gi',
     buf.implementation,
-    { buffer = bufnr, desc = 'Go to implementation' }
+    { buffer = bufnr, desc = 'Go To Implementation' }
   )
   map(
     'n',
     'gy',
     buf.type_definition,
-    { buffer = bufnr, desc = 'Go to type definition' }
+    { buffer = bufnr, desc = 'Go To Type Definition' }
   )
-  map('n', 'gr', buf.references, { buffer = bufnr, desc = 'Show references' })
+  map('n', 'gr', buf.references, { buffer = bufnr, desc = 'Show References' })
   map('n', 'gR', buf.rename, { buffer = bufnr, desc = 'Rename' })
   map(
     { 'n', 'v' },
     'ca',
     buf.references,
-    { buffer = bufnr, desc = 'Code action' }
+    { buffer = bufnr, desc = 'Code Action' }
   )
 end
 

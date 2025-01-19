@@ -12,6 +12,9 @@ return {
         'telescope',
         'which-key',
       },
+      disable = {
+        background = true,
+      },
     },
   },
 
