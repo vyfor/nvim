@@ -1,7 +1,25 @@
 local datapath = vim.fn.stdpath 'data'
 local lazypath = datapath .. '/lazy/lazy.nvim'
-vim.opt.rtp:prepend(lazypath)
 
+vim.api.nvim_create_user_command('LazyInit', function()
+  vim.uv.fs_stat(lazypath, function(err)
+    if err then
+      vim.notify 'Installing lazy.nvim...'
+      vim.fn.system {
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable',
+        lazypath,
+      }
+    else
+      vim.notify 'Lazy.nvim is already installed!'
+    end
+  end)
+end, { nargs = 0 })
+
+vim.opt.rtp:prepend(lazypath)
 require('lazy').setup('plugins', {
   lockfile = datapath .. '/lazy-lock.json',
   git = {
