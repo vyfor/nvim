@@ -22,6 +22,13 @@ return {
     branch = 'client-server',
     build = ':Cord update',
     event = 'SafeState',
-    opts = true,
+    opts = {
+      buttons = {
+        {
+          label = 'View Repository',
+          url = function(opts) return opts.repo_url end,
+        },
+      },
+    },
   },
 }
