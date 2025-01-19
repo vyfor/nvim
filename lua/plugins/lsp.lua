@@ -60,9 +60,10 @@ return {
     end,
     config = function()
       local lspconfig = require 'lspconfig'
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       lspconfig.lua_ls.setup {
-        capabilities = require('blink.cmp').get_lsp_capabilities(),
+        capabilities = capabilities,
         on_attach = on_attach,
         settings = {
           Lua = {
@@ -76,6 +77,11 @@ return {
             },
           },
         },
+      }
+
+      lspconfig.rust_analyzer.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
     end,
   },
