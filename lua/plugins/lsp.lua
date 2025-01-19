@@ -34,12 +34,17 @@ end
 return {
   {
     'neovim/nvim-lspconfig',
-    event = 'InsertEnter',
+    lazy = true,
+    keys = {
+      { '<leader>ls', '<cmd>LspStart<cr>', desc = 'Start LSP' },
+      { '<leader>lt', '<cmd>LspStop<cr>', desc = 'Stop LSP' },
+      { '<leader>lr', '<cmd>LspRestart<cr>', desc = 'Restart LSP' },
+    },
     config = function()
       local lspconfig = require 'lspconfig'
 
       lspconfig.lua_ls.setup {
-        capabilities = vim.lsp.protocol.make_client_capabilities(),
+        capabilities = require('blink.cmp').get_lsp_capabilities(),
         on_attach = on_attach,
         settings = {
           Lua = {
