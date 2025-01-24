@@ -62,11 +62,6 @@ return {
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
-        providers = {
-          cmdline = {
-            enabled = false,
-          },
-        },
       },
     },
     opts_extend = { 'sources.default' },
