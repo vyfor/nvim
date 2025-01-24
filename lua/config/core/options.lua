@@ -48,3 +48,4 @@ opt.smoothscroll = true
 opt.foldmethod = 'expr'
 opt.foldtext = ''
 opt.laststatus = 3
+opt.cmdheight = 0
