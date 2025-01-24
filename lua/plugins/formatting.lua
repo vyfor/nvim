@@ -21,17 +21,7 @@ return {
         lsp_format = 'fallback',
       },
       format_after_save = {},
-      formatters = {
-        stylua = {
-          prepend_args = {
-            '--config-path',
-            'C:/Users/1/.config/stylua/.stylua.toml',
-          },
-        },
-      },
     },
-    init = function()
-      vim.o.formatexpr = 'v:lua.require\'conform\'.formatexpr()'
-    end,
+    init = function() vim.o.formatexpr = 'v:lua.require\'conform\'.formatexpr()' end,
   },
 }
