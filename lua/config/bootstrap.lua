@@ -62,7 +62,6 @@ require('lazy').setup('plugins', {
         'spellfile',
         'rplugin',
         'editorconfig',
-        'man',
       },
     },
   },

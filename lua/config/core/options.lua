@@ -35,12 +35,6 @@ opt.ignorecase = true
 opt.incsearch = true
 opt.smartcase = true
 
-opt.shell = 'nu'
-opt.shellcmdflag = '-c'
-opt.shellquote = ''
-opt.shellredir = '| save %s'
-opt.shellxquote = ''
-
 opt.termguicolors = true
 
 opt.number = true
