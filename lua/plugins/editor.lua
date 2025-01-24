@@ -91,7 +91,6 @@ return {
 
   {
     'folke/flash.nvim',
-    event = 'SafeState',
     keys = {
       {
         's',
@@ -118,7 +117,15 @@ return {
         desc = 'Toggle Flash Search',
       },
     },
-    opts = {},
+    opts = function()
+      return {
+        highlight = {
+          groups = {
+            label = 'Normal',
+          },
+        },
+      }
+    end,
   },
 
   {

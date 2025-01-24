@@ -1,40 +1,7 @@
-local function on_attach(_, bufnr)
-  local map = vim.keymap.set
-  local buf = vim.lsp.buf
-
-  map(
-    'n',
-    'gD',
-    buf.declaration,
-    { buffer = bufnr, desc = 'Go To Declaration' }
-  )
-  map('n', 'gd', buf.definition, { buffer = bufnr, desc = 'Go to definition' })
-  map(
-    'n',
-    'gi',
-    buf.implementation,
-    { buffer = bufnr, desc = 'Go To Implementation' }
-  )
-  map(
-    'n',
-    'gy',
-    buf.type_definition,
-    { buffer = bufnr, desc = 'Go To Type Definition' }
-  )
-  map('n', 'gr', buf.references, { buffer = bufnr, desc = 'Show References' })
-  map('n', 'gR', buf.rename, { buffer = bufnr, desc = 'Rename' })
-  map(
-    { 'n', 'v' },
-    'ca',
-    buf.references,
-    { buffer = bufnr, desc = 'Code Action' }
-  )
-end
-
 return {
   {
     'neovim/nvim-lspconfig',
-    lazy = true,
+    cmd = { 'LspInfo', 'LspStart', 'LspStop', 'LspRestart' },
     keys = {
       { '<leader>ls', '<cmd>LspStart<cr>', desc = 'Start LSP' },
       { '<leader>lt', '<cmd>LspStop<cr>', desc = 'Stop LSP' },
@@ -64,7 +31,6 @@ return {
 
       lspconfig.lua_ls.setup {
         capabilities = capabilities,
-        on_attach = on_attach,
         settings = {
           Lua = {
             diagnostics = {
@@ -77,11 +43,6 @@ return {
             },
           },
         },
-      }
-
-      lspconfig.rust_analyzer.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
       }
     end,
   },
@@ -101,8 +62,57 @@ return {
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+          cmdline = {
+            enabled = false,
+          },
+        },
       },
     },
     opts_extend = { 'sources.default' },
+  },
+
+  {
+    'mrcjkb/rustaceanvim',
+    ft = 'rust',
+    version = '^5',
+  },
+
+  {
+    'saecki/crates.nvim',
+    keys = {
+      {
+        '<leader>Cv',
+        function()
+          require('crates').show_versions_popup()
+          require('crates').focus_popup()
+        end,
+        desc = 'Show Crate Versions',
+        ft = 'toml',
+      },
+      {
+        '<leader>Cf',
+        function()
+          require('crates').show_features_popup()
+          require('crates').focus_popup()
+        end,
+        desc = 'Show Crate Features',
+        ft = 'toml',
+      },
+    },
+    event = { 'BufRead Cargo.toml' },
+    opts = {
+      lsp = {
+        enabled = true,
+        on_attach = on_attach,
+        actions = true,
+        completion = true,
+        hover = true,
+        popup = {
+          autofocus = true,
+          border = 'rounded',
+        },
+      },
+    },
   },
 }
