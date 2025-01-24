@@ -5,7 +5,6 @@ return {
     priority = 1000,
     opts = {
       plugins = {
-        'flash',
         'mini',
         'nvim-cmp',
         'nvim-web-devicons',
@@ -25,6 +24,6 @@ return {
         virtual_text = false,
       }
     end,
-    config = function() require('lsp_lines').setup() end,
+    opts = {},
   },
 }
