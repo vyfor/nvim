@@ -17,13 +17,12 @@ return {
   },
 
   {
-    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    event = 'InsertEnter',
-    init = function()
-      vim.diagnostic.config {
-        virtual_text = false,
-      }
+    'rachartier/tiny-inline-diagnostic.nvim',
+    event = 'LspAttach',
+    priority = 1000,
+    config = function()
+      require('tiny-inline-diagnostic').setup()
+      vim.diagnostic.config { virtual_text = false }
     end,
-    opts = {},
   },
 }
