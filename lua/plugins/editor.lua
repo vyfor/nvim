@@ -61,8 +61,8 @@ return {
 
   {
     'echasnovski/mini.ai',
-    event = 'SafeState',
-    opts = {},
+    event = 'VeryLazy',
+    opts = true,
   },
 
   {
