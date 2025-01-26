@@ -76,7 +76,17 @@ return {
       { 'gsh', desc = 'Highlight Surrounding' },
       { 'gsn', desc = 'Update `n_lines`' },
     },
-    opts = {},
+    opts = {
+      mappings = {
+        add = 'gsa',
+        delete = 'gsd',
+        find = 'gsf',
+        find_left = 'gsF',
+        highlight = 'gsh',
+        replace = 'gsr',
+        update_n_lines = 'gsn',
+      },
+    },
   },
 
   {
